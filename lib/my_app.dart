@@ -42,6 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.titleLarge,
             ),
+            Text(
+              'Number is ${(_counter % 2 == 0 ? "Even" : "Odd")}',
+              style: Theme.of(context).textTheme.titleMedium,
+            )
           ],
         ),
       ),
