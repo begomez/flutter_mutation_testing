@@ -3,6 +3,15 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mutation_test_example/my_app.dart';
 
 void main() {
+  testWidgets('When screen shown then initial value is 0',
+      (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(const MyApp());
+
+    // Verify that our counter starts at 0.
+    expect(find.text('0'), findsOneWidget);
+  });
+
   testWidgets('When button click then counter incremented',
       (WidgetTester tester) async {
     // Build our app and trigger a frame.

@@ -1,10 +1,8 @@
 import 'dart:io';
 
-void main() async {
-  _mutateSourceCode();
-}
+void main() async => _mutateSourceCode();
 
-void _mutateSourceCode() async {
+Future<void> _mutateSourceCode() async {
   // Path to the file you want to mutate
   String filePath = 'lib/my_app.dart';
 
@@ -13,9 +11,11 @@ void _mutateSourceCode() async {
 
   // Introduce a simple mutation (e.g., change an increment to a decrement)
   String mutatedContent =
-      originalContent.replaceFirst('_counter++;', '_counter--;');
+      originalContent.replaceFirst('_counter++', '_counter--');
 
   mutatedContent = mutatedContent.replaceAll('==', '!=');
+
+  mutatedContent = mutatedContent.replaceAll('_counter = 0', '_counter = 10');
 
   // Write the mutated content to the file
   await File(filePath).writeAsString(mutatedContent);
